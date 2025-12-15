@@ -1,0 +1,189 @@
+{
+	"InstallStructureConfig": {
+		"InterfaceSection": {
+			"SourceFileName": "something",
+			"SourceFileExtension": ".xyz",
+			"AddTimestamp": "ON",
+			"Delimeter": ",",
+			"DebugMode": "ON"
+		},
+		"InterfaceInputFields": {
+			"Requester_Priority": {
+				"Validation": {},
+				"Alerts": {
+					"IF1_401": {
+						"AlertType": "ERROR",
+						"AlertClass": "Data Validation",
+						"AlertValidation": "checkIfEmpty",
+						"AlertMessage": "Mandatory field Requester_Priority is empty.",
+						"StopLight": "AMBER",
+						"SummaryLog": "DataValidationErrors"
+					}
+				}
+			},
+			"AlternateStructures": {
+				"WorkStatus": {
+					"AltStructure": "Wbs20",
+					"PrimStructure": "$Plan",
+					"AltType": "S"
+				},
+				"RequesterPriority": {
+					"AltStructure": "Wbs25",
+					"PrimStructure": "$Plan",
+					"AltType": "S"
+				},
+				"MultiSelectDemo": {
+					"AltStructure": "Wbs190",
+					"PrimStructure": "$Plan",
+					"AltType": "M"
+				},
+				"Project Manager": {
+					"AltStructure": "LfCycRole",
+					"StructureCode": "2268"
+				}
+			},
+			"CustomFields": {
+				"Business_Need": {
+					"FieldID": "PE02",
+					"PrimStructure": "$Plan",
+					"FieldType": "L"
+				},
+				"PreliminaryScore": {
+					"FieldID": "score3",
+					"PrimStructure": "$Plan",
+					"FieldType": "N",
+					"FieldFormat": "20.2"
+				}
+			}
+		},
+		"CustomErrors": {},
+		"Components": {
+			"Finalize": "finalize v2/finalize",
+			"LoggingComponent": "utils v1/alertLogging",
+			"DynamicValidator": "dynamicValidator v1/validateDataDynamic",
+			"ExecuteSQL": "utils v1/executeSQL"
+		},
+		"LoggingSection": {
+			"ProcessLogPrefix": "ABCD_IF00_ProcessLog_",
+			"ZipThreshold": "50",
+			"SourceDataFileArchive": "True",
+			"LogRetentionDays": "30",
+			"DataRetentionDays": "30",
+			"Timezone": "CET",
+			"SummaryLogPrefix": "ABCD_IF00_SummaryLog_",
+			"SummaryLogOverview": {
+				"DataSummary": {
+					"SectionName": "Data Summary",
+					"MessageSequence": {
+						"AllRecords": "Number of project records",
+						"ErrorRecords": "Number of records with error",
+						"ProcessedRecords": "Number of records exported"
+					}
+				},
+				"BatchSummary": {
+					"SectionName": "",
+					"MessageSequence": []
+				},
+				"MasterSummary": {
+					"SectionName": "Error Summary",
+					"MessageSequence": [
+						"DataValidationErrors",
+						"DataValidationWarnings"
+					]
+				}
+			},
+			"SummaryLogConfigurableTabs": {
+				"SourceTab1": {
+					"TabName": "Source Data",
+					"TabSource": "pi_abcd_if00export_staging",
+					"TabIncludeColumns": [
+						"Work_ID",
+						"Project_Name",
+						"Schedule_Start",
+						"Schedule_Finish",
+						"Status",
+						"Requester_Priority",
+						"Lifecycle_Administrator",
+						"Preliminary_Score",
+						"Multi_Select_Demo",
+						"Project_Manager",
+						"Business_Need"
+					]
+				},
+				"CustomTab2": {
+					"TabName": "",
+					"TabSource": "",
+					"TabIncludeColumns": [
+						"*"
+					]
+				},
+				"CustomTab3": {
+					"TabName": "",
+					"TabSource": "",
+					"TabIncludeColumns": [
+						""
+					]
+				},
+				"CustomTab4": {
+					"TabName": "",
+					"TabSource": "",
+					"TabIncludeColumns": [
+						""
+					]
+				},
+				"CustomTab5": {
+					"TabName": "",
+					"TabSource": "",
+					"TabIncludeColumns": [
+						""
+					]
+				}
+			},
+			"TransLogPrefix": "ABCD_IF00_ServiceLog_",
+			"TransLogType": "xlsx",
+			"TransLogSource": "pivw_abcd_if00_transactions",
+			"ErrorLogPrefix": "ABCD_IF00_ErrorLog_",
+			"ErrorLogType": "csv",
+			"ErrorLogSource": "pivw_abcd_if00_errors"
+		},
+		"EmailSection": {
+			"IsSendEmail": "false",
+			"AttachLogs": "false",
+			"SmtpTo": "email@company.com",
+			"SmtpFrom": "noreply@planview.com"
+		}
+	},
+	"ConfigurationCheck": {
+		"FmConfigCheck": {},
+		"SnapLogicConfiguration": {
+			"Accounts": [],
+			"Tasks": [
+				{
+					"TaskName": "EXECUTE_poc-01projectExport_Task"
+				}
+			]
+		},
+		"MappingData": {
+			"TablesToCheck": []
+		},
+		"WebService": {
+			"Web_Services_Used": []
+		}
+	},
+	"JobStreamConfig": {
+		"JobStream": [
+			{
+				"Name": "POC IF1 Project Export",
+				"Path": "Execute-poc-01projectExport.bat"
+			},
+			{
+				"Name": "POC IF1 Installation",
+				"Path": "Execute-Install.bat"
+			},
+			{
+				"Name": "POC IF1 Config Checks",
+				"Path": "Execute-ConfigCheck.bat"
+			}
+		]
+	}
+}
