@@ -1,11 +1,11 @@
 {
 	"InstallStructureConfig": {
 		"InterfaceSection": {
-			"SourceFileName": "something",
-			"SourceFileExtension": ".xyz",
+			"SourceFileName": "IF05_cutoff_dates",
+			"SourceFileExtension": ".xlsx",
 			"AddTimestamp": "ON",
 			"Delimeter": ",",
-			"DebugMode": "ON"
+			"DebugMode": "OFF"
 		},
 		"InterfaceInputFields": {
 			"Requester_Priority": {
@@ -149,7 +149,7 @@
 		"EmailSection": {
 			"IsSendEmail": "false",
 			"AttachLogs": "false",
-			"SmtpTo": "email@company.com",
+			"SmtpTo": "gaddam.naresh@planview.com",
 			"SmtpFrom": "noreply@planview.com"
 		}
 	},
@@ -159,7 +159,7 @@
 			"Accounts": [],
 			"Tasks": [
 				{
-					"TaskName": "EXECUTE_poc-01projectExport_Task"
+					"TaskName": "EXECUTE_Z_training_Naresh_Task "
 				}
 			]
 		},
@@ -173,16 +173,8 @@
 	"JobStreamConfig": {
 		"JobStream": [
 			{
-				"Name": "POC IF1 Project Export",
-				"Path": "Execute-poc-01projectExport.bat"
-			},
-			{
-				"Name": "POC IF1 Installation",
-				"Path": "Execute-Install.bat"
-			},
-			{
-				"Name": "POC IF1 Config Checks",
-				"Path": "Execute-ConfigCheck.bat"
+				"Name": "POC Z_training_Naresh",
+				"Path": "EXECUTE_Z_training_Naresh.bat"
 			}
 		]
 	}
