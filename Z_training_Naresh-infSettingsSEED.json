@@ -121,7 +121,7 @@
 			"SummaryLogConfigurableTabs": {
 				"SourceTab1": {
 					"TabName": "Source Data",
-					"TabSource": "pi_abcd_if00export_staging",
+					"TabSource": "pi_test_if00export_staging",
 					"TabIncludeColumns": [
 						"*"
 					]
@@ -195,5 +195,6 @@
 		]
 	}
 }
+
 
 
