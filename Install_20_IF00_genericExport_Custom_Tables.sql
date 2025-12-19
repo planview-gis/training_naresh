@@ -7,8 +7,8 @@
 ------------------------------------------------------------------ */
 
 
-IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'pi_abcd_if00export_staging') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-CREATE TABLE pi_abcd_if00export_staging (
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'pi_test_if00export_staging') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+CREATE TABLE pi_test_if00export_staging (
     [RECORD] BIGINT NOT NULL IDENTITY(0,1),
     [RUN_ID] bigint,
     [SRC_REC_ID] bigint,
@@ -21,9 +21,10 @@ CREATE TABLE pi_abcd_if00export_staging (
 
 
 /* Index for interface staging table */
-CREATE NONCLUSTERED INDEX pi_idx_run_id ON pi_abcd_if00export_staging
+CREATE NONCLUSTERED INDEX pi_idx_run_id ON pi_test_if00export_staging
 (
 	[run_id] ASC
 )
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
 
