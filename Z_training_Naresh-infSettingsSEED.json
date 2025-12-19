@@ -8,14 +8,40 @@
 			"DebugMode": "OFF"
 		},
 		"InterfaceInputFields": {
-			"Requester_Priority": {
+			"CUTOFF_TO_BE": {
 				"Validation": {},
 				"Alerts": {
-					"IF1_401": {
+					"IF00_101": {
 						"AlertType": "ERROR",
 						"AlertClass": "Data Validation",
 						"AlertValidation": "checkIfEmpty",
-						"AlertMessage": "Mandatory field Requester_Priority is empty.",
+						"AlertMessage": "Mandatory field CUTOFF_TO_BE is empty.",
+						"StopLight": "AMBER",
+						"SummaryLog": "DataValidationErrors"
+					}
+				}
+			},
+			"ON_OR_AFTER": {
+				"Validation": {},
+				"Alerts": {
+					"IF00_102": {
+						"AlertType": "ERROR",
+						"AlertClass": "Data Validation",
+						"AlertValidation": "checkIfEmpty",
+						"AlertMessage": "Mandatory field ON_OR_AFTER is empty.",
+						"StopLight": "AMBER",
+						"SummaryLog": "DataValidationErrors"
+					}
+				}
+			},
+			"BEFORE_OR_UNTIL": {
+				"Validation": {},
+				"Alerts": {
+					"IF00_103": {
+						"AlertType": "ERROR",
+						"AlertClass": "Data Validation",
+						"AlertValidation": "checkIfEmpty",
+						"AlertMessage": "Mandatory field BEFORE_OR_UNTIL is empty.",
 						"StopLight": "AMBER",
 						"SummaryLog": "DataValidationErrors"
 					}
@@ -97,17 +123,7 @@
 					"TabName": "Source Data",
 					"TabSource": "pi_abcd_if00export_staging",
 					"TabIncludeColumns": [
-						"Work_ID",
-						"Project_Name",
-						"Schedule_Start",
-						"Schedule_Finish",
-						"Status",
-						"Requester_Priority",
-						"Lifecycle_Administrator",
-						"Preliminary_Score",
-						"Multi_Select_Demo",
-						"Project_Manager",
-						"Business_Need"
+						"*"
 					]
 				},
 				"CustomTab2": {
