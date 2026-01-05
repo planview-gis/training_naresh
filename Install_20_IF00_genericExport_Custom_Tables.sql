@@ -14,9 +14,9 @@ CREATE TABLE chw_test_if01fexport_staging (
     [SRC_REC_ID] bigint,
     stratajazz_id VARCHAR(MAX),
     location VARCHAR(MAX),
-    project_budget BIGINT (20,2),
-	project_actual BIGINT (20,2),
-	project_obligation BIGINT (20,2),
+    project_budget DECIMAL(20,2),
+    project_actual DECIMAL(20,2),
+    project_obligation DECIMAL(20,2),
     REF_TABLE VARCHAR(MAX) DEFAULT 'no',
     UPDT_ON [datetime] DEFAULT GETDATE()
 );
@@ -28,6 +28,7 @@ CREATE NONCLUSTERED INDEX pi_idx_run_id ON chw_test_if01fexport_staging
 	[run_id] ASC
 )
 WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
 
 
 
