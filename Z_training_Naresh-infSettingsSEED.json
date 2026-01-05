@@ -1,47 +1,73 @@
 {
 	"InstallStructureConfig": {
 		"InterfaceSection": {
-			"SourceFileName": "IF05_cutoff_dates",
-			"SourceFileExtension": ".xlsx",
+			"SourceFileName": "IF01f_WorkdayProjectFinancialTotals_20250218",
+			"SourceFileExtension": ".Txt",
 			"AddTimestamp": "ON",
 			"Delimeter": ",",
 			"DebugMode": "OFF"
 		},
 		"InterfaceInputFields": {
-			"CUTOFF_TO_BE": {
+			"stratajazz_id": {
 				"Validation": {},
 				"Alerts": {
 					"IF00_101": {
 						"AlertType": "ERROR",
 						"AlertClass": "Data Validation",
 						"AlertValidation": "checkIfEmpty",
-						"AlertMessage": "Mandatory field CUTOFF_TO_BE is empty.",
+						"AlertMessage": "Mandatory field stratajazz_id is empty.",
 						"StopLight": "AMBER",
 						"SummaryLog": "DataValidationErrors"
 					}
 				}
 			},
-			"ON_OR_AFTER": {
+			"project_budget": {
 				"Validation": {},
 				"Alerts": {
 					"IF00_102": {
 						"AlertType": "ERROR",
 						"AlertClass": "Data Validation",
 						"AlertValidation": "checkIfEmpty",
-						"AlertMessage": "Mandatory field ON_OR_AFTER is empty.",
+						"AlertMessage": "Mandatory field project_budget is empty.",
 						"StopLight": "AMBER",
 						"SummaryLog": "DataValidationErrors"
 					}
 				}
 			},
-			"BEFORE_OR_UNTIL": {
+			"project_actual": {
 				"Validation": {},
 				"Alerts": {
 					"IF00_103": {
 						"AlertType": "ERROR",
 						"AlertClass": "Data Validation",
 						"AlertValidation": "checkIfEmpty",
-						"AlertMessage": "Mandatory field BEFORE_OR_UNTIL is empty.",
+						"AlertMessage": "Mandatory field project_actual is empty.",
+						"StopLight": "AMBER",
+						"SummaryLog": "DataValidationErrors"
+					}
+				}
+			},
+			"project_obligation": {
+				"Validation": {},
+				"Alerts": {
+					"IF00_103": {
+						"AlertType": "ERROR",
+						"AlertClass": "Data Validation",
+						"AlertValidation": "checkIfEmpty",
+						"AlertMessage": "Mandatory field project_obligation is empty.",
+						"StopLight": "AMBER",
+						"SummaryLog": "DataValidationErrors"
+					}
+				}
+			},
+			"location": {
+				"Validation": {},
+				"Alerts": {
+					"IF00_103": {
+						"AlertType": "ERROR",
+						"AlertClass": "Data Validation",
+						"AlertValidation": "checkIfEmpty",
+						"AlertMessage": "Mandatory field location is empty.",
 						"StopLight": "AMBER",
 						"SummaryLog": "DataValidationErrors"
 					}
@@ -90,13 +116,13 @@
 			"ExecuteSQL": "utils v1/executeSQL"
 		},
 		"LoggingSection": {
-			"ProcessLogPrefix": "ABCD_IF00_ProcessLog_",
+			"ProcessLogPrefix": "CHW_IF01f_ProcessLog_",
 			"ZipThreshold": "50",
 			"SourceDataFileArchive": "True",
 			"LogRetentionDays": "30",
 			"DataRetentionDays": "30",
 			"Timezone": "CET",
-			"SummaryLogPrefix": "ABCD_IF00_SummaryLog_",
+			"SummaryLogPrefix": "CHW_IF00f_SummaryLog_",
 			"SummaryLogOverview": {
 				"DataSummary": {
 					"SectionName": "Data Summary",
@@ -121,7 +147,7 @@
 			"SummaryLogConfigurableTabs": {
 				"SourceTab1": {
 					"TabName": "Source Data",
-					"TabSource": "pi_test_if00export_staging",
+					"TabSource": "chw_test_if01fexport_staging",
 					"TabIncludeColumns": [
 						"*"
 					]
@@ -155,12 +181,12 @@
 					]
 				}
 			},
-			"TransLogPrefix": "ABCD_IF00_ServiceLog_",
+			"TransLogPrefix": "CHW_IF01f_ServiceLog_",
 			"TransLogType": "xlsx",
-			"TransLogSource": "pivw_abcd_if00_transactions",
-			"ErrorLogPrefix": "ABCD_IF00_ErrorLog_",
+			"TransLogSource": "pivw_chw_if01f_transactions",
+			"ErrorLogPrefix": "CHW_IF01f_ErrorLog_",
 			"ErrorLogType": "csv",
-			"ErrorLogSource": "pivw_abcd_if00_errors"
+			"ErrorLogSource": "pivw_chw_if01f_errors"
 		},
 		"EmailSection": {
 			"IsSendEmail": "false",
@@ -195,6 +221,5 @@
 		]
 	}
 }
-
 
 
